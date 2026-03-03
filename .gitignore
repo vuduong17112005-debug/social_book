@@ -1,0 +1,16 @@
+# Môi trường ảo (Rất nặng, không nên đẩy lên GitHub)
+venv/
+env/
+
+# Database (Dữ liệu cá nhân trên máy bạn, không nên công khai)
+*.sqlite3
+
+# Các file tạm của Python
+__pycache__/
+*.py[cod]
+
+# Thư mục chứa ảnh upload (Để tránh làm nặng repo bằng ảnh rác)
+media/
+
+# Các file cấu hình của VS Code
+.vscode/
