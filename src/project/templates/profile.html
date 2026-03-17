@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Trang cá nhân - {{user.username}}</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; background-color: #f0f2f5; margin: 0; display: flex; justify-content: center; }
+        .profile-container { background: white; width: 500px; margin-top: 50px; border-radius: 15px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.1); text-align: center; }
+        .cover-photo { background: #1877f2; height: 150px; }
+        .profile-pic { width: 120px; height: 120px; border-radius: 50%; border: 5px solid white; margin-top: -60px; object-fit: cover; }
+        .info { padding: 20px; }
+        h2 { margin: 10px 0 5px 0; }
+        .location { color: #65676b; font-size: 0.9em; margin-bottom: 15px; }
+        .bio { border-top: 1px solid #eee; padding-top: 15px; color: #444; line-height: 1.6; }
+        .btn-back { display: inline-block; margin-top: 20px; padding: 8px 20px; background: #e4e6eb; color: black; text-decoration: none; border-radius: 6px; }
+    </style>
+</head>
+<body>
+
+    <div class="profile-container">
+        <div class="cover-photo"></div>
+        
+        <img src="{{ user.profile.profileimg.url }}" alt="Profile Picture" class="profile-pic">
+        
+        <div class="info">
+            <h2>{{ user.username }}</h2>
+            <p class="location">📍 {{ user.profile.location|default:"Chưa cập nhật vị trí" }}</p>
+            
+            <div class="bio">
+                <strong>Tiểu sử:</strong><br>
+                {{ user.profile.bio|default:"Người dùng này chưa viết tiểu sử." }}
+            </div>
+
+            <a href="/" class="btn-back">Quay lại trang chủ</a>
+            <a href="/settings" class="btn-back" style="background: #1877f2; color: white;">Chỉnh sửa hồ sơ</a>
+        </div>
+    </div>
+
+</body>
+</html>
+<img src="{{ user.profile.profileimg.url }}" alt="Avatar">
+<p>Tiểu sử: {{ user.profile.bio }}</p>
+<p>Vị trí: {{ user.profile.location }}</p>

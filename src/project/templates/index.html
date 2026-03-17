@@ -1,0 +1,25 @@
+{% load static %} <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Social Book - Home</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/uikit.css' %}">
+</head>
+<body>
+    <img src="{% static 'images/logo.png' %}" alt="Logo">
+
+    <a href="/profile">Chào mừng, {{user.username}}</a>
+    
+    </body>
+<nav style="background: #1877f2; padding: 10px; color: white; display: flex; justify-content: space-between;">
+    <div>
+        <a href="/" style="color: white; text-decoration: none; font-weight: bold; font-size: 20px;">SocialBook</a>
+    </div>
+    <div>
+        <a href="/profile" style="color: white; margin-right: 15px;">Trang cá nhân</a>
+        <a href="/settings" style="color: white; margin-right: 15px;">Cài đặt</a>
+        <a href="/logout" style="color: white;">Đăng xuất</a>
+    </div>
+</nav>
+</html>

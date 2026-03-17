@@ -1,0 +1,11 @@
+/* Xóa khung của form đăng ký */
+form {
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* Nếu cái khung nằm ở chữ Đăng ký tài khoản (thường là h2) */
+h2 {
+    border: none !important;
+    outline: none !important;
+}
