@@ -59,3 +59,18 @@ def settings(request):
         return redirect('settings')
 
     return render(request, 'settings.html', {'user_profile': user_profile})
+def upload(request):
+    if request.method == 'POST':
+        user = request.user.username
+        image = request.FILES.get('image_upload')
+        caption = request.POST.get('caption')
+
+        new_post = Post.objects.create(user=user, image=image, caption=caption)
+        new_post.save()
+        return redirect('/') # Đăng xong quay về trang chủ
+    else:
+        return redirect('/')
+def index(request):
+    # Lấy toàn bộ bài viết, cái nào mới nhất thì hiện lên đầu (dùng dấu trừ trước created_at)
+    posts = Post.objects.all().order_by('-created_at')
+    return render(request, 'index.html', {'posts': posts})

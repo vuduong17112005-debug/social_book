@@ -22,4 +22,23 @@
         <a href="/logout" style="color: white;">Đăng xuất</a>
     </div>
 </nav>
+<form action="/upload" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <textarea name="caption" placeholder="Bạn đang nghĩ gì..."></textarea>
+    <input type="file" name="image_upload">
+    <button type="submit">Đăng bài</button>
+</form>
+{% for post in posts %}
+    <div class="post-card" style="border: 1px solid #ddd; margin: 20px 0; padding: 15px; border-radius: 8px; background: white;">
+        <strong>@{{ post.user }}</strong>
+        <p>{{ post.caption }}</p>
+        
+        {% if post.image %}
+            <img src="{{ post.image.url }}" style="width: 100%; max-width: 500px; border-radius: 8px; display: block; margin-top: 10px;">
+        {% endif %}
+        
+        <br>
+        <small style="color: gray;">Đăng vào: {{ post.created_at }}</small>
+    </div>
+{% endfor %}
 </html>
